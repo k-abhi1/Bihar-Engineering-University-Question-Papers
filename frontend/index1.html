@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEULearn | Bihar Engineering University PYQ Repository</title>
+    <meta name="description" content="View and download BEU previous year question papers. Organized by semester, subject, and year for Bihar Engineering University students.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- PDF.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    
+    <style>
+        :root {
+            /* Professional Color Palette */
+            --primary: #2563eb;      /* Royal Blue - Professional & Trustworthy */
+            --primary-light: #3b82f6;
+            --secondary: #0ea5e9;    /* Sky Blue - Modern & Fresh */
+            --accent: #06b6d4;       /* Cyan - Calm & Accessible */
+            --dark: #1e293b;          /* Dark Navy */
+            --light: #f8fafc;         /* Off-white */
+            --gray: #64748b;          /* Neutral gray */
+            --light-gray: #e2e8f0;    /* Light borders */
+            --white: #ffffff;
+            --success: #10b981;       /* Success green */
+            
+            /* Typography */
+            --heading-font: 'Poppins', sans-serif;
+            --body-font: 'Inter', sans-serif;
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--body-font);
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+        
+        /* Main Container */
+        .main-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: linear-gradient(180deg, var(--primary), var(--dark));
+            color: var(--white);
+            padding: var(--spacing-lg);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .logo-text {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+        }
+        
+        .nav-section {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .nav-section h3 {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .nav-links {
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: 0.75rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+        }
+        
+        .nav-links a i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: var(--spacing-lg);
+            overflow-y: auto;
+            max-height: 100vh;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .header h1 {
+            font-size: 1.875rem;
+            color: var(--dark);
+        }
+        
+        .search-container {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 var(--spacing-lg);
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 0.875rem 1rem 0.875rem 3rem;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--radius-lg);
+            font-family: var(--body-font);
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .search-box i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+        
+        /* Quick Stats */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .stat-card {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .stat-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+        
+        /* PDF Grid */
+        .pdf-grid {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .section-title h2 {
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .filter-tabs {
+            display: flex;
+            gap: var(--spacing-xs);
+            background: var(--light-gray);
+            padding: 4px;
+            border-radius: var(--radius-md);
+        }
+        
+        .filter-tabs button {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: none;
+            border-radius: var(--radius-sm);
+            font-family: var(--body-font);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .filter-tabs button.active {
+            background: var(--white);
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .papers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .paper-item {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+        
+        .paper-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+        
+        .paper-item.active {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, var(--white), #f0f9ff);
+        }
+        
+        .paper-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .paper-badge {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .paper-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .paper-title {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            color: var(--dark);
+        }
+        
+        .paper-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .paper-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .paper-actions {
+            display: flex;
+            gap: var(--spacing-xs);
+            margin-top: var(--spacing-sm);
+        }
+        
+        /* PDF Viewer */
+        .pdf-viewer-container {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            margin-top: var(--spacing-xl);
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pdf-toolbar {
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            padding: var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .pdf-info h3 {
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+        
+        .pdf-info p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+        }
+        
+        .toolbar-actions {
+            display: flex;
+            gap: var(--spacing-xs);
+        }
+        
+        .pdf-viewer {
+            flex: 1;
+            overflow: auto;
+            padding: var(--spacing-md);
+            background: #525659;
+        }
+        
+        .pdf-page {
+            margin: 0 auto var(--spacing-md);
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: var(--body-font);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .btn-sm {
+            padding: 0.25rem 0.75rem;
+            font-size: 0.875rem;
+        }
+        
+        /* Loading */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: var(--spacing-xl);
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--light-gray);
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: var(--spacing-xl);
+            color: var(--gray);
+        }
+        
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--light-gray);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .main-container {
+                grid-template-columns: 250px 1fr;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                height: auto;
+                position: static;
+            }
+            
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: var(--spacing-xs);
+            }
+            
+            .nav-links a {
+                padding: 0.5rem 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+            
+            .search-container {
+                margin: 0;
+                max-width: 100%;
+            }
+            
+            .quick-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .papers-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .quick-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-content {
+                padding: var(--spacing-md);
+            }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="logo-text">BEU<span>Learn</span></div>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Main Menu</h3>
+                <ul class="nav-links">
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-search"></i> Browse PYQs</a></li>
+                    <li><a href="#"><i class="fas fa-star"></i> Popular</a></li>
+                    <li><a href="#"><i class="fas fa-history"></i> Recent</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Semesters</h3>
+                <ul class="nav-links">
+                    <li><a href="#"><i class="fas fa-layer-group"></i> Semester 1</a></li>
+                    <li><a href="#"><i class="fas fa-layer-group"></i> Semester 2</a></li>
+                    <li><a href="#"><i class="fas fa-layer-group"></i> Semester 3</a></li>
+                    <li><a href="#"><i class="fas fa-layer-group"></i> Semester 4</a></li>
+                    <li><a href="#"><i class="fas fa-layer-group"></i> Semester 5</a></li>
+                    <li><a href="#"><i class="fas fa-layer-group"></i> Semester 6</a></li>
+                    <li><a href="#"><i class="fas fa-layer-group"></i> Semester 7</a></li>
+                    <li><a href="#"><i class="fas fa-layer-group"></i> Semester 8</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Subjects</h3>
+                <ul class="nav-links">
+                    <li><a href="#"><i class="fas fa-calculator"></i> Mathematics</a></li>
+                    <li><a href="#"><i class="fas fa-atom"></i> Physics</a></li>
+                    <li><a href="#"><i class="fas fa-flask"></i> Chemistry</a></li>
+                    <li><a href="#"><i class="fas fa-laptop-code"></i> Programming</a></li>
+                    <li><a href="#"><i class="fas fa-database"></i> DBMS</a></li>
+                    <li><a href="#"><i class="fas fa-network-wired"></i> Networks</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Resources</h3>
+                <ul class="nav-links">
+                    <li><a href="#"><i class="fas fa-sticky-note"></i> Notes</a></li>
+                    <li><a href="#"><i class="fas fa-clipboard-list"></i> Mock Tests</a></li>
+                    <li><a href="#"><i class="fas fa-lightbulb"></i> Solutions</a></li>
+                    <li><a href="#"><i class="fas fa-calendar-alt"></i> Schedule</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1>BEU Question Papers</h1>
+                
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search papers by subject, semester, or year...">
+                    </div>
+                </div>
+                
+                <div class="user-info">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-download"></i> Quick Download
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <i class="fas fa-file-pdf"></i>
+                    <div class="stat-number">1,248</div>
+                    <div class="stat-label">Total Papers</div>
+                </div>
+                
+                <div class="stat-card">
+                    <i class="fas fa-download"></i>
+                    <div class="stat-number">45.2K</div>
+                    <div class="stat-label">Total Downloads</div>
+                </div>
+                
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <div class="stat-number">12.5K</div>
+                    <div class="stat-label">Active Students</div>
+                </div>
+                
+                <div class="stat-card">
+                    <i class="fas fa-star"></i>
+                    <div class="stat-number">4.8</div>
+                    <div class="stat-label">Average Rating</div>
+                </div>
+            </div>
+            
+            <!-- PDF Grid -->
+            <div class="pdf-grid">
+                <div class="section-title">
+                    <h2>Recent Question Papers</h2>
+                    <div class="filter-tabs">
+                        <button class="active" data-filter="all">All</button>
+                        <button data-filter="sem1">Sem 1</button>
+                        <button data-filter="sem2">Sem 2</button>
+                        <button data-filter="sem3">Sem 3</button>
+                        <button data-filter="sem4">Sem 4</button>
+                    </div>
+                </div>
+                
+                <div class="papers-container" id="papersContainer">
+                    <!-- Papers will be loaded here -->
+                </div>
+            </div>
+            
+            <!-- PDF Viewer -->
+            <div class="pdf-viewer-container" id="pdfViewer" style="display: none;">
+                <div class="pdf-toolbar">
+                    <div class="pdf-info">
+                        <h3 id="pdfTitle">Select a paper to view</h3>
+                        <p id="pdfInfo">Click on any paper from the list above to view it here</p>
+                    </div>
+                    <div class="toolbar-actions">
+                        <button class="btn btn-outline" id="downloadBtn">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                        <button class="btn btn-outline" id="closeViewer">
+                            <i class="fas fa-times"></i> Close
+                        </button>
+                    </div>
+                </div>
+                <div class="pdf-viewer" id="pdfContainer">
+                    <div class="loading" id="pdfLoading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+    <script>
+        // PDF Data
+        const pdfPapers = [
+            {
+                id: 1,
+                title: "Engineering Mathematics - III",
+                subject: "Mathematics",
+                semester: "3",
+                year: "2022",
+                pages: 45,
+                size: "2.4 MB",
+                downloads: 1250,
+                rating: 4.8,
+                pdfUrl: "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf"
+            },
+            {
+                id: 2,
+                title: "Physics for Engineers",
+                subject: "Physics",
+                semester: "2",
+                year: "2021",
+                pages: 32,
+                size: "1.8 MB",
+                downloads: 980,
+                rating: 4.5,
+                pdfUrl: "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf"
+            },
+            {
+                id: 3,
+                title: "Data Structures & Algorithms",
+                subject: "Data Structures",
+                semester: "4",
+                year: "2023",
+                pages: 28,
+                size: "1.5 MB",
+                downloads: 1560,
+                rating: 4.9,
+                pdfUrl: "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf"
+            },
+            {
+                id: 4,
+                title: "Database Management Systems",
+                subject: "DBMS",
+                semester: "5",
+                year: "2022",
+                pages: 36,
+                size: "2.1 MB",
+                downloads: 1120,
+                rating: 4.7,
+                pdfUrl: "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf"
+            },
+            {
+                id: 5,
+                title: "Operating Systems",
+                subject: "Operating Systems",
+                semester: "6",
+                year: "2023",
+                pages: 40,
+                size: "2.3 MB",
+                downloads: 1340,
+                rating: 4.6,
+                pdfUrl: "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf"
+            },
+            {
+                id: 6,
+                title: "Computer Networks",
+                subject: "Networks",
+                semester: "7",
+                year: "2021",
+                pages: 34,
+                size: "1.9 MB",
+                downloads: 890,
+                rating: 4.4,
+                pdfUrl: "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf"
+            }
+        ];
+
+        // DOM Elements
+        const papersContainer = document.getElementById('papersContainer');
+        const pdfViewer = document.getElementById('pdfViewer');
+        const pdfTitle = document.getElementById('pdfTitle');
+        const pdfInfo = document.getElementById('pdfInfo');
+        const pdfContainer = document.getElementById('pdfContainer');
+        const pdfLoading = document.getElementById('pdfLoading');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const closeViewer = document.getElementById('closeViewer');
+        const searchInput = document.getElementById('searchInput');
+        const filterTabs = document.querySelectorAll('.filter-tabs button');
+
+        let currentPdf = null;
+        let currentPdfUrl = '';
+
+        // Render Papers
+        function renderPapers(papers) {
+            papersContainer.innerHTML = '';
+            
+            if (papers.length === 0) {
+                papersContainer.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-file-search"></i>
+                        <h3>No papers found</h3>
+                        <p>Try adjusting your search criteria</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            papers.forEach(paper => {
+                const paperItem = document.createElement('div');
+                paperItem.className = 'paper-item';
+                paperItem.setAttribute('data-id', paper.id);
+                
+                paperItem.innerHTML = `
+                    <div class="paper-header">
+                        <span class="paper-badge">Sem ${paper.semester}</span>
+                        <i class="fas fa-file-pdf paper-icon"></i>
+                    </div>
+                    <h3 class="paper-title">${paper.title}</h3>
+                    <div class="paper-meta">
+                        <span><i class="fas fa-book"></i> ${paper.subject}</span>
+                        <span><i class="fas fa-calendar"></i> ${paper.year}</span>
+                        <span><i class="fas fa-file"></i> ${paper.pages} pages</span>
+                    </div>
+                    <div class="paper-meta">
+                        <span><i class="fas fa-download"></i> ${paper.downloads.toLocaleString()}</span>
+                        <span><i class="fas fa-star"></i> ${paper.rating}</span>
+                        <span><i class="fas fa-hdd"></i> ${paper.size}</span>
+                    </div>
+                    <div class="paper-actions">
+                        <button class="btn btn-primary btn-sm view-btn" data-id="${paper.id}">
+                            <i class="fas fa-eye"></i> View
+                        </button>
+                        <button class="btn btn-outline btn-sm download-btn" data-id="${paper.id}">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                `;
+                
+                papersContainer.appendChild(paperItem);
+            });
+            
+            // Add event listeners
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const paperId = parseInt(this.getAttribute('data-id'));
+                    const paper = pdfPapers.find(p => p.id === paperId);
+                    if (paper) {
+                        openPdfViewer(paper);
+                        setActivePaper(paperId);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.download-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const paperId = parseInt(this.getAttribute('data-id'));
+                    const paper = pdfPapers.find(p => p.id === paperId);
+                    if (paper) {
+                        downloadPaper(paper);
+                    }
+                });
+            });
+            
+            // Click on paper item
+            document.querySelectorAll('.paper-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const paperId = parseInt(this.getAttribute('data-id'));
+                    const paper = pdfPapers.find(p => p.id === paperId);
+                    if (paper) {
+                        openPdfViewer(paper);
+                        setActivePaper(paperId);
+                    }
+                });
+            });
+        }
+
+        // Set active paper
+        function setActivePaper(paperId) {
+            document.querySelectorAll('.paper-item').forEach(item => {
+                item.classList.remove('active');
+                if (parseInt(item.getAttribute('data-id')) === paperId) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        // Open PDF Viewer
+        function openPdfViewer(paper) {
+            currentPdfUrl = paper.pdfUrl;
+            pdfTitle.textContent = paper.title;
+            pdfInfo.textContent = `${paper.subject} • Semester ${paper.semester} • ${paper.year} • ${paper.pages} pages`;
+            pdfViewer.style.display = 'flex';
+            loadPdf(paper.pdfUrl);
+            
+            // Scroll to viewer
+            pdfViewer.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Load PDF
+        function loadPdf(url) {
+            pdfContainer.innerHTML = '';
+            pdfLoading.style.display = 'flex';
+            
+            // Initialize PDF.js
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+            
+            // Load the PDF
+            const loadingTask = pdfjsLib.getDocument(url);
+            loadingTask.promise.then(pdf => {
+                currentPdf = pdf;
+                pdfLoading.style.display = 'none';
+                
+                // Render first 2 pages
+                for (let pageNum = 1; pageNum <= Math.min(pdf.numPages, 2); pageNum++) {
+                    pdf.getPage(pageNum).then(page => {
+                        const scale = 1.2;
+                        const viewport = page.getViewport({ scale: scale });
+                        
+                        // Create canvas
+                        const canvas = document.createElement('canvas');
+                        const context = canvas.getContext('2d');
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+                        canvas.className = 'pdf-page';
+                        
+                        // Render PDF page
+                        const renderContext = {
+                            canvasContext: context,
+                            viewport: viewport
+                        };
+                        
+                        page.render(renderContext).promise.then(() => {
+                            pdfContainer.appendChild(canvas);
+                        });
+                    });
+                }
+            }).catch(error => {
+                pdfLoading.style.display = 'none';
+                pdfContainer.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: #666;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 48px; margin-bottom: 20px;"></i>
+                        <h3>Unable to Load PDF</h3>
+                        <p>Please try downloading the file instead.</p>
+                    </div>
+                `;
+                console.error('Error loading PDF:', error);
+            });
+        }
+
+        // Download paper
+        function downloadPaper(paper) {
+            const link = document.createElement('a');
+            link.href = paper.pdfUrl;
+            link.download = `${paper.subject}_Sem${paper.semester}_${paper.year}.pdf`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showNotification(`Downloading ${paper.title}...`);
+        }
+
+        // Show notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.position = 'fixed';
+            notification.style.bottom = '20px';
+            notification.style.right = '20px';
+            notification.style.backgroundColor = 'var(--success)';
+            notification.style.color = 'white';
+            notification.style.padding = '12px 20px';
+            notification.style.borderRadius = 'var(--radius-md)';
+            notification.style.boxShadow = 'var(--shadow-lg)';
+            notification.style.zIndex = '3000';
+            notification.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Search functionality
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const filteredPapers = pdfPapers.filter(paper => 
+                paper.title.toLowerCase().includes(searchTerm) ||
+                paper.subject.toLowerCase().includes(searchTerm) ||
+                paper.year.includes(searchTerm)
+            );
+            renderPapers(filteredPapers);
+        });
+
+        // Filter tabs
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                let filteredPapers = pdfPapers;
+                
+                if (filter !== 'all') {
+                    const sem = filter.replace('sem', '');
+                    filteredPapers = pdfPapers.filter(paper => paper.semester === sem);
+                }
+                
+                renderPapers(filteredPapers);
+            });
+        });
+
+        // Download button
+        downloadBtn.addEventListener('click', function() {
+            if (currentPdfUrl) {
+                const link = document.createElement('a');
+                link.href = currentPdfUrl;
+                link.download = 'BEU_Question_Paper.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                showNotification('Downloading PDF...');
+            }
+        });
+
+        // Close viewer
+        closeViewer.addEventListener('click', function() {
+            pdfViewer.style.display = 'none';
+            document.querySelectorAll('.paper-item').forEach(item => {
+                item.classList.remove('active');
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initial render
+            renderPapers(pdfPapers);
+            
+            // Sidebar navigation
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // In a real app, you would load different content here
+                    const section = this.textContent.trim();
+                    showNotification(`Loading ${section}...`);
+                });
+            });
+            
+            // Load first paper by default
+            setTimeout(() => {
+                if (pdfPapers.length > 0) {
+                    openPdfViewer(pdfPapers[0]);
+                    setActivePaper(1);
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
