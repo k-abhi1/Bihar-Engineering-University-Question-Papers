@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holidays - BeuAdhyay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/Syllabus/style.css">
+    <style>
+        /* Additional styles for holiday cards */
+        .holiday-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .holiday-card {
+            background: var(--white);
+            border: 2px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .holiday-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+        .holiday-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        .holiday-content {
+            padding: 1.5rem 1.5rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .holiday-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+        .holiday-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        .holiday-date {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+        }
+        .holiday-date i {
+            color: var(--primary);
+        }
+        .holiday-desc {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            flex: 1;
+            text-align: center;
+        }
+        .holiday-tag {
+            display: inline-block;
+            background: var(--light);
+            color: var(--primary);
+            font-size: 0.85rem;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            margin: 0 auto 0.5rem;
+            font-weight: 500;
+        }
+        .holiday-footer {
+            border-top: 1px solid var(--light-gray);
+            padding-top: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        .holiday-footer span i {
+            margin-right: 0.25rem;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-toggle" id="mobileToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="container">
+        <!-- Sidebar (identical to other pages) -->
+        <div class="sidebar" id="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">Beu<span>Adhyay</span></div>
+            </div>
+
+            <div class="nav-section">
+                <h3>Navigation</h3>
+                  <ul>
+                    <li><a href="/index.html" id="navDashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="../Syllabus/Syllabus.html" id="navSyllabus"><i class="fas fa-search"></i> Syllabus</a>
+                    </li>
+                    <li><a href="https://beu-bih.ac.in/notification" target="_blank" id="navUniversity"><i
+                                class="fas fa-star"></i> University Notification</a></li>
+                    <li><a href="../Scholarships/index.html" target="_blank" id="navScholarship"><i
+                                class="fas fa-history"></i> All scholarship</a></li>
+                    <li><a href="../Holidays/index.html" id="navHoliday"><i class="fas fa-calendar-alt"></i> Holiday</a>
+                    </li>
+                    <li><a href="https://beu-bih.ac.in/result-one" target="_blank" id="navResult"><i
+                                class="fas fa-chart-line"></i> Result</a></li>
+                    <li><a href="../Assistant/index.html" id="navAssistant"><i class="fas fa-robot"></i> AI
+                            Assistant</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3>Quick Access</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-layer-group"></i> Semester 1</a></li>
+                    <li><a href="#"><i class="fas fa-layer-group"></i> Semester 2</a></li>
+                    <!-- other semesters (optional) -->
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3>Statistics</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-pdf"></i> Total Papers: 2,500+</a></li>
+                    <li><a href="#"><i class="fas fa-download"></i> Downloads: 75K+</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Active Users: 25K+</a></li>
+                </ul>
+            </div>
+
+            <div class="beuadhyay-brand">
+                <p>BeuAdhyay</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Academic Holidays 2025</h1>
+                <div class="header-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search holidays...">
+                    </div>
+                    <div class="user-profile">
+                        <div class="user-avatar">BA</div>
+                        <div>
+                            <div style="font-weight: 600;">BeuAdhyay</div>
+                            <div style="font-size: 0.875rem; color: var(--gray);">University</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Holiday Filters (optional) -->
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                <select class="btn btn-outline" id="monthFilter" style="background: white;">
+                    <option value="all">All Months</option>
+                    <option value="Jan">January</option>
+                    <option value="Feb">February</option>
+                    <option value="Mar">March</option>
+                    <option value="Apr">April</option>
+                    <option value="May">May</option>
+                    <option value="Jun">June</option>
+                    <option value="Jul">July</option>
+                    <option value="Aug">August</option>
+                    <option value="Sep">September</option>
+                    <option value="Oct">October</option>
+                    <option value="Nov">November</option>
+                    <option value="Dec">December</option>
+                </select>
+            </div>
+
+            <!-- Holidays Grid -->
+            <div class="content-section">
+                <h2 class="section-title">Upcoming & Notable Holidays</h2>
+                <div class="holiday-grid" id="holidayGrid">
+                    <!-- Holidays will be populated by JavaScript -->
+                </div>
+                <div id="noResults" style="text-align: center; padding: 3rem; color: var(--gray); display: none;">
+                    <i class="fas fa-calendar-times" style="font-size: 3rem;"></i>
+                    <h3>No holidays found</h3>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>© 2025 BeuAdhyay | Academic Calendar for Bihar Engineering University</p>
+                <p style="margin-top: 0.5rem; color: var(--gray); font-size: 0.75rem;">Holidays are subject to change. Always check official notices.</p>
+                <p style="margin-top: 0.5rem; color: var(--gray); font-size: 0.75rem;">Powered by <strong>BeuAdhyay</strong></p>
+            </div>
+        </div>
+    </div>
+
+   <script src="/home page/script.js"></script>
+    <script>
+        // Holiday data
+        const holidays = [
+            { date: "2025-01-26", day: "Sunday", occasion: "Republic Day", type: "National", description: "Celebration of the adoption of the Constitution of India.", icon: "fa-flag" },
+            { date: "2025-01-15", day: "Wednesday", occasion: "Makar Sankranti", type: "Regional", description: "Harvest festival celebrated across India.", icon: "fa-sun" },
+            { date: "2025-02-26", day: "Wednesday", occasion: "Maha Shivratri", type: "Religious", description: "Festival dedicated to Lord Shiva.", icon: "fa-moon" },
+            { date: "2025-03-17", day: "Monday", occasion: "Holi", type: "Religious", description: "Festival of colors.", icon: "fa-paint-brush" },
+            { date: "2025-03-31", day: "Monday", occasion: "Eid-ul-Fitr", type: "Religious", description: "Marks the end of Ramadan.", icon: "fa-star-and-crescent" },
+            { date: "2025-04-14", day: "Monday", occasion: "Ambedkar Jayanti", type: "Commemorative", description: "Birth anniversary of Dr. B.R. Ambedkar.", icon: "fa-user-tie" },
+            { date: "2025-04-18", day: "Friday", occasion: "Good Friday", type: "Religious", description: "Christian holiday commemorating crucifixion of Jesus.", icon: "fa-cross" },
+            { date: "2025-05-01", day: "Thursday", occasion: "Maharashtra Day / Labour Day", type: "Regional", description: "Foundation day of Maharashtra state.", icon: "fa-briefcase" },
+            { date: "2025-06-07", day: "Saturday", occasion: "Eid-ul-Adha (Bakrid)", type: "Religious", description: "Festival of sacrifice.", icon: "fa-mosque" },
+            { date: "2025-07-06", day: "Sunday", occasion: "Rath Yatra", type: "Religious", description: "Chariot festival celebrated in Odisha.", icon: "fa-church" },
+            { date: "2025-08-15", day: "Friday", occasion: "Independence Day", type: "National", description: "India's independence from British rule.", icon: "fa-flag" },
+            { date: "2025-08-16", day: "Saturday", occasion: "Janmashtami", type: "Religious", description: "Birth of Lord Krishna.", icon: "fa-feather" },
+            { date: "2025-09-07", day: "Sunday", occasion: "Ganesh Chaturthi", type: "Religious", description: "Birth of Lord Ganesha.", icon: "fa-elephant" },
+            { date: "2025-10-02", day: "Thursday", occasion: "Gandhi Jayanti", type: "National", description: "Birth anniversary of Mahatma Gandhi.", icon: "fa-dove" },
+            { date: "2025-10-12", day: "Sunday", occasion: "Dussehra (Vijayadashami)", type: "Religious", description: "Victory of good over evil.", icon: "fa-arrow-alt-circle-right" },
+            { date: "2025-10-31", day: "Friday", occasion: "Diwali (Lakshmi Pujan)", type: "Religious", description: "Festival of lights.", icon: "fa-lightbulb" },
+            { date: "2025-11-01", day: "Saturday", occasion: "Diwali (Bali Pratipada)", type: "Religious", description: "Next day of Diwali.", icon: "fa-lightbulb" },
+            { date: "2025-11-05", day: "Wednesday", occasion: "Chhath Puja (Surya Shashthi)", type: "Regional", description: "Major festival in Bihar and UP.", icon: "fa-sun" },
+            { date: "2025-11-15", day: "Saturday", occasion: "Guru Nanak Jayanti", type: "Religious", description: "Birth of Guru Nanak Dev.", icon: "fa-star-of-life" },
+            { date: "2025-12-25", day: "Thursday", occasion: "Christmas", type: "Religious", description: "Birth of Jesus Christ.", icon: "fa-tree" }
+        ];
+
+        // Function to format date nicely
+        function formatDate(dateStr) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateStr).toLocaleDateString('en-US', options);
+        }
+
+        // Function to get month abbreviation from date
+        function getMonth(dateStr) {
+            return new Date(dateStr).toLocaleString('default', { month: 'short' });
+        }
+
+        // Render holiday cards
+        function renderHolidays(filterMonth = 'all', searchTerm = '') {
+            const grid = document.getElementById('holidayGrid');
+            const noResults = document.getElementById('noResults');
+            grid.innerHTML = '';
+            let visibleCount = 0;
+
+            holidays.forEach(hol => {
+                const month = getMonth(hol.date);
+                const titleMatch = hol.occasion.toLowerCase().includes(searchTerm);
+                const descMatch = hol.description.toLowerCase().includes(searchTerm);
+                const typeMatch = hol.type.toLowerCase().includes(searchTerm);
+                if ((filterMonth === 'all' || month === filterMonth) && 
+                    (searchTerm === '' || titleMatch || descMatch || typeMatch)) {
+                    visibleCount++;
+                    const card = document.createElement('div');
+                    card.className = 'holiday-card';
+                    card.innerHTML = `
+                        <div class="holiday-header">${hol.type} Holiday</div>
+                        <div class="holiday-content">
+                            <div class="holiday-icon"><i class="fas ${hol.icon}"></i></div>
+                            <div class="holiday-title">${hol.occasion}</div>
+                            <div class="holiday-date">
+                                <i class="fas fa-calendar-alt"></i> ${formatDate(hol.date)} (${hol.day})
+                            </div>
+                            <div class="holiday-desc">${hol.description}</div>
+                            <div class="holiday-tag">${hol.type}</div>
+                            <div class="holiday-footer">
+                                <span><i class="fas fa-map-pin"></i> University Holiday</span>
+                                <span><i class="fas fa-clock"></i> 1 day</span>
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+
+        // Initial render
+        renderHolidays();
+
+        // Search and filter
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const filterMonth = document.getElementById('monthFilter').value;
+            renderHolidays(filterMonth, searchTerm);
+        });
+
+        document.getElementById('monthFilter').addEventListener('change', function(e) {
+            const filterMonth = e.target.value;
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            renderHolidays(filterMonth, searchTerm);
+        });
+    </script>
+</body>
+</html>

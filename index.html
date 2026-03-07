@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEU Study | Bihar Engineering University Question Papers</title>
+    <title>BeuAdhyay | Question Papers</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     <style>
         :root {
             --primary: #2563eb;
@@ -460,8 +462,8 @@
             font-size: 0.875rem;
         }
 
-        /* Pagrim Brand */
-        .pagrim-brand {
+        /* BeuAdhyay Brand */
+        .beuadhyay-brand {
             text-align: center;
             margin-top: 2rem;
             padding-top: 1rem;
@@ -476,6 +478,7 @@
                 opacity: 0;
                 transform: translateY(10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -483,49 +486,44 @@
         }
 
         /* ============================================
-           COMPREHENSIVE MEDIA QUERIES FOR ALL DEVICES
+           COMPREHENSIVE MEDIA QUERIES (keep as in original) 
            ============================================ */
-
-        /* 1. LARGE DESKTOPS (1440px and above) */
         @media (min-width: 1440px) {
             .container {
                 grid-template-columns: 300px 1fr;
                 max-width: 1600px;
                 margin: 0 auto;
             }
-            
+
             .branch-grid {
                 grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
                 gap: 1.25rem;
             }
-            
+
             .semester-grid {
                 grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
                 gap: 1.25rem;
             }
-            
+
             .main-content {
                 padding: 2.5rem;
             }
-            
+
             .content-section {
                 padding: 2.5rem;
             }
-            
+
             .search-box input {
                 width: 350px;
             }
         }
 
-        /* 2. STANDARD DESKTOPS (1024px to 1439px) - Default styles apply here */
-
-        /* 3. TABLETS LANDSCAPE (768px to 1023px) */
         @media (max-width: 1023px) {
             .container {
                 grid-template-columns: 1fr;
                 position: relative;
             }
-            
+
             .sidebar {
                 position: fixed;
                 left: -280px;
@@ -534,198 +532,196 @@
                 width: 280px;
                 transition: left 0.3s ease;
             }
-            
+
             .sidebar.active {
                 left: 0;
             }
-            
+
             .mobile-toggle {
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
-            
+
             .header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 1rem;
                 margin-top: 3rem;
             }
-            
+
             .header-controls {
                 width: 100%;
                 flex-direction: column;
                 gap: 1rem;
             }
-            
+
             .search-box {
                 width: 100%;
             }
-            
+
             .search-box input {
                 width: 100%;
             }
-            
+
             .user-profile {
                 align-self: flex-start;
             }
-            
+
             .branch-grid {
                 grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             }
-            
+
             .semester-grid {
                 grid-template-columns: repeat(4, 1fr);
             }
-            
+
             .main-content {
                 padding: 1.5rem;
                 max-height: none;
             }
-            
+
             .content-section {
                 padding: 1.5rem;
             }
         }
 
-        /* 4. TABLETS PORTRAIT (600px to 767px) */
         @media (max-width: 767px) {
             .header h1 {
                 font-size: 1.75rem;
             }
-            
+
             .section-title {
                 font-size: 1.35rem;
             }
-            
+
             .section-subtitle {
                 font-size: 1.15rem;
             }
-            
+
             .branch-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 0.875rem;
             }
-            
+
             .semester-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
-            
+
             .branch-card {
                 padding: 1.25rem 1rem;
                 min-height: 110px;
             }
-            
+
             .branch-icon {
                 font-size: 1.5rem;
             }
-            
+
             .branch-name {
                 font-size: 0.9rem;
             }
-            
+
             .semester-card {
                 padding: 1.25rem 0.75rem;
             }
-            
+
             .semester-number {
                 font-size: 1.35rem;
             }
-            
+
             .paper-item {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 1rem;
             }
-            
+
             .paper-actions {
                 width: 100%;
             }
-            
+
             .paper-actions .btn {
                 flex: 1;
                 justify-content: center;
             }
-            
+
             .paper-details {
                 gap: 0.75rem;
             }
-            
+
             .paper-details span {
                 font-size: 0.8rem;
             }
         }
 
-        /* 5. SMARTPHONES LANDSCAPE (480px to 599px) */
         @media (max-width: 599px) {
             .header h1 {
                 font-size: 1.5rem;
             }
-            
+
             .section-title {
                 font-size: 1.25rem;
             }
-            
+
             .section-subtitle {
                 font-size: 1.1rem;
             }
-            
+
             .branch-grid {
                 grid-template-columns: 1fr;
                 gap: 0.75rem;
             }
-            
+
             .semester-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .branch-card {
                 padding: 1rem;
                 min-height: 100px;
             }
-            
+
             .branch-icon {
                 font-size: 1.35rem;
                 margin-bottom: 0.5rem;
             }
-            
+
             .branch-name {
                 font-size: 0.85rem;
             }
-            
+
             .semester-card {
                 padding: 1rem 0.5rem;
             }
-            
+
             .semester-number {
                 font-size: 1.25rem;
             }
-            
+
             .semester-text {
                 font-size: 0.8rem;
             }
-            
+
             .paper-code {
                 font-size: 0.95rem;
             }
-            
+
             .paper-details {
                 gap: 0.5rem;
             }
-            
+
             .paper-details span {
                 font-size: 0.75rem;
             }
-            
+
             .main-content {
                 padding: 1rem;
             }
-            
+
             .content-section {
                 padding: 1.25rem;
                 margin-bottom: 1.5rem;
             }
-            
+
             .footer {
                 margin-top: 2rem;
                 padding-top: 1.5rem;
@@ -733,156 +729,154 @@
             }
         }
 
-        /* 6. SMARTPHONES PORTRAIT (320px to 479px) */
         @media (max-width: 479px) {
             .header h1 {
                 font-size: 1.35rem;
             }
-            
+
             .mobile-toggle {
                 width: 45px;
                 height: 45px;
                 font-size: 1.25rem;
             }
-            
+
             .section-title {
                 font-size: 1.15rem;
                 margin-bottom: 1rem;
             }
-            
+
             .section-subtitle {
                 font-size: 1rem;
                 margin-bottom: 1rem;
             }
-            
+
             .semester-grid {
                 grid-template-columns: 1fr;
                 gap: 0.5rem;
             }
-            
+
             .semester-card {
                 padding: 0.875rem 0.5rem;
             }
-            
+
             .semester-number {
                 font-size: 1.15rem;
             }
-            
+
             .branch-card {
                 min-height: 90px;
                 padding: 0.875rem 0.75rem;
             }
-            
+
             .branch-name {
                 font-size: 0.8rem;
                 line-height: 1.2;
             }
-            
+
             .paper-item {
                 padding: 1rem;
             }
-            
+
             .paper-code {
                 font-size: 0.9rem;
             }
-            
+
             .paper-details {
                 flex-direction: column;
                 gap: 0.25rem;
             }
-            
+
             .btn {
                 padding: 0.4rem 0.75rem;
                 font-size: 0.8rem;
             }
-            
+
             .search-box input {
                 padding: 0.625rem 0.875rem 0.625rem 2.25rem;
                 font-size: 0.9rem;
             }
-            
+
             .search-box i {
                 left: 0.875rem;
             }
-            
+
             .user-profile {
                 padding: 0.4rem 0.75rem;
             }
-            
+
             .user-avatar {
                 width: 32px;
                 height: 32px;
             }
         }
 
-        /* 7. VERY SMALL DEVICES (below 320px) */
         @media (max-width: 319px) {
             .header h1 {
                 font-size: 1.2rem;
             }
-            
+
             .section-title {
                 font-size: 1rem;
             }
-            
+
             .section-subtitle {
                 font-size: 0.9rem;
             }
-            
+
             .branch-grid {
                 gap: 0.5rem;
             }
-            
+
             .branch-card {
                 padding: 0.75rem 0.5rem;
                 min-height: 85px;
             }
-            
+
             .branch-icon {
                 font-size: 1.25rem;
                 margin-bottom: 0.375rem;
             }
-            
+
             .branch-name {
                 font-size: 0.75rem;
             }
-            
+
             .semester-card {
                 padding: 0.75rem 0.375rem;
             }
-            
+
             .semester-number {
                 font-size: 1.1rem;
             }
-            
+
             .semester-text {
                 font-size: 0.75rem;
             }
-            
+
             .paper-code {
                 font-size: 0.85rem;
             }
-            
+
             .paper-actions {
                 flex-direction: column;
                 gap: 0.5rem;
             }
-            
+
             .paper-actions .btn {
                 width: 100%;
             }
-            
+
             .main-content {
                 padding: 0.75rem;
             }
-            
+
             .content-section {
                 padding: 1rem;
             }
         }
 
-        /* 8. PRINT STYLES */
         @media print {
+
             .sidebar,
             .header-controls,
             .mobile-toggle,
@@ -890,27 +884,27 @@
             .footer {
                 display: none !important;
             }
-            
+
             .container {
                 grid-template-columns: 1fr;
             }
-            
+
             .main-content {
                 padding: 0;
                 max-height: none;
             }
-            
+
             .content-section {
                 box-shadow: none;
                 border: 1px solid #ddd;
                 page-break-inside: avoid;
             }
-            
+
             .paper-item {
                 border: 1px solid #ddd;
                 page-break-inside: avoid;
             }
-            
+
             body {
                 background: white;
                 color: black;
@@ -918,7 +912,6 @@
             }
         }
 
-        /* 9. DARK MODE PREFERENCE */
         @media (prefers-color-scheme: dark) {
             :root {
                 --dark: #f8fafc;
@@ -927,32 +920,31 @@
                 --light-gray: #334155;
                 --white: #0f172a;
             }
-            
+
             .branch-card,
             .semester-card,
             .paper-item {
                 background: #1e293b;
                 border-color: #334155;
             }
-            
+
             .branch-card:hover,
             .semester-card:hover,
             .paper-item:hover {
                 background: #334155;
             }
-            
+
             .search-box input {
                 background: #1e293b;
                 color: var(--dark);
                 border-color: #475569;
             }
-            
+
             .user-profile {
                 background: #1e293b;
             }
         }
 
-        /* 10. HIGH CONTRAST MODE */
         @media (prefers-contrast: high) {
             :root {
                 --primary: #0000ff;
@@ -964,20 +956,20 @@
                 --gray: #666666;
                 --light-gray: #cccccc;
             }
-            
+
             .branch-card,
             .semester-card,
             .paper-item {
                 border: 2px solid var(--dark);
             }
-            
+
             .btn {
                 border: 2px solid var(--dark);
             }
         }
 
-        /* 11. REDUCED MOTION PREFERENCE */
         @media (prefers-reduced-motion: reduce) {
+
             *,
             *::before,
             *::after {
@@ -985,7 +977,7 @@
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
             }
-            
+
             .branch-card:hover,
             .semester-card:hover,
             .paper-item:hover,
@@ -994,67 +986,66 @@
             }
         }
 
-        /* 12. ORIENTATION SPECIFIC */
         @media (orientation: landscape) and (max-height: 500px) {
             .container {
                 min-height: auto;
             }
-            
+
             .sidebar {
                 height: auto;
                 position: static;
             }
-            
+
             .main-content {
                 max-height: none;
             }
-            
+
             .header {
                 margin-bottom: 1rem;
                 padding-bottom: 1rem;
             }
-            
+
             .content-section {
                 margin-bottom: 1rem;
                 padding: 1rem;
             }
-            
+
             .branch-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
-            
+
             .branch-card {
                 min-height: 80px;
                 padding: 1rem 0.5rem;
             }
-            
+
             .branch-icon {
                 font-size: 1.25rem;
                 margin-bottom: 0.25rem;
             }
-            
+
             .branch-name {
                 font-size: 0.8rem;
             }
         }
 
-        /* 13. TOUCH DEVICE OPTIMIZATION */
         @media (hover: none) and (pointer: coarse) {
+
             .branch-card,
             .semester-card,
             .paper-item {
-                min-height: 44px; /* Minimum touch target size */
+                min-height: 44px;
             }
-            
+
             .btn {
                 min-height: 44px;
                 min-width: 44px;
             }
-            
+
             .nav-section a {
                 padding: 1rem;
             }
-            
+
             .branch-card:active,
             .semester-card:active,
             .paper-item:active {
@@ -1062,9 +1053,9 @@
                 transition: transform 0.1s;
             }
         }
-   
-</style>
+    </style>
 </head>
+
 <body>
     <!-- Mobile Menu Toggle -->
     <button class="mobile-toggle" id="mobileToggle">
@@ -1078,17 +1069,25 @@
                 <div class="logo-icon">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
-                <div class="logo-text">BEU<span>Study</span></div>
+                <div class="logo-text">Beu <span>Adhyay</span></div>
             </div>
 
             <div class="nav-section">
                 <h3>Navigation</h3>
                 <ul>
-                    <li><a href="#" class="active" id="navDashboard"><i class="fas fa-home"></i> Dashboard</a></li>
-                    <li><a href="#" id="navSearch"><i class="fas fa-search"></i> Search Papers</a></li>
-                    <li><a href="#" id="navPopular"><i class="fas fa-star"></i> Popular</a></li>
-                    <li><a href="#" id="navRecent"><i class="fas fa-history"></i> Recent</a></li>
-                    <li><a href="#" id="navDownloads"><i class="fas fa-download"></i> Downloads</a></li>
+                    <li><a href="index.html" id="navDashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="../Syllabus/Syllabus.html" id="navSyllabus"><i class="fas fa-search"></i> Syllabus</a>
+                    </li>
+                    <li><a href="https://beu-bih.ac.in/notification" target="_blank" id="navUniversity"><i
+                                class="fas fa-star"></i> University Notification</a></li>
+                    <li><a href="../Scholarships/index.html" target="_blank" id="navScholarship"><i
+                                class="fas fa-history"></i> All scholarship</a></li>
+                    <li><a href="../Holidays/index.html" id="navHoliday"><i class="fas fa-calendar-alt"></i> Holiday</a>
+                    </li>
+                    <li><a href="https://beu-bih.ac.in/result-one" target="_blank" id="navResult"><i
+                                class="fas fa-chart-line"></i> Result</a></li>
+                    <li><a href="./Holidays/index.html" id="navAssistant"><i class="fas fa-robot"></i> AI
+                            Assistant</a></li>
                 </ul>
             </div>
 
@@ -1108,8 +1107,8 @@
                 </ul>
             </div>
 
-            <div class="pagrim-brand">
-                <p>Pagrim</p>
+            <div class="beuadhyay-brand">
+                <p>BeuAdhyay</p>
             </div>
         </div>
 
@@ -1117,16 +1116,16 @@
         <div class="main-content">
             <!-- Header -->
             <div class="header">
-                <h1>BEU Study - Question Papers</h1>
+                <h1>BeuAdhyay - Question Papers</h1>
                 <div class="header-controls">
                     <div class="search-box">
                         <i class="fas fa-search"></i>
                         <input type="text" id="searchInput" placeholder="Search paper by code, subject, or year...">
                     </div>
                     <div class="user-profile">
-                        <div class="user-avatar">BE</div>
+                        <div class="user-avatar">BA</div>
                         <div>
-                            <div style="font-weight: 600;">Bihar Engineering</div>
+                            <div style="font-weight: 600;">BeuAdhyay</div>
                             <div style="font-size: 0.875rem; color: var(--gray);">University</div>
                         </div>
                     </div>
@@ -1136,44 +1135,40 @@
             <!-- BRANCH Selection Section -->
             <div class="content-section">
                 <h2 class="section-title">SELECT BRANCH</h2>
-                
-                <div class="branch-grid" id="branchGrid">
-                    <!-- Branches will be populated by JavaScript -->
-                </div>
+                <div class="branch-grid" id="branchGrid"></div>
             </div>
 
             <!-- Semester Selection Section - Hidden by default -->
             <div class="content-section semester-section" id="semesterSection">
                 <h2 class="section-title" id="selectedBranchTitle">B.TECH <span id="branchName">CIVIL</span></h2>
                 <h3 class="section-subtitle">SELECT SEMESTER</h3>
-                
-                <div class="semester-grid" id="semesterGrid">
-                    <!-- Semesters will be populated by JavaScript -->
-                </div>
+                <div class="semester-grid" id="semesterGrid"></div>
             </div>
 
             <!-- Papers Section - Hidden by default -->
             <div class="content-section papers-section" id="papersSection">
-                <h2 class="section-title" id="papersSectionTitle">Papers for <span id="selectedBranch">CIVIL</span> - Semester <span id="selectedSemester">4</span></h2>
-                
-                <div class="papers-list" id="papersList">
-                    <!-- Papers will be loaded here -->
-                </div>
+                <h2 class="section-title" id="papersSectionTitle">Papers for <span id="selectedBranch">CIVIL</span> -
+                    Semester <span id="selectedSemester">4</span></h2>
+                <div class="papers-list" id="papersList"></div>
             </div>
 
             <!-- Footer -->
             <div class="footer">
-                <p>© 2023 BEU ADDA | Bihar Engineering University Question Paper Repository</p>
+                <p>© 2023 BeuAdhyay | Bihar Engineering University Question Paper Repository</p>
                 <p style="margin-top: 0.5rem; color: var(--gray); font-size: 0.75rem;">
                     For educational purposes only | All papers are property of Bihar Engineering University
                 </p>
                 <p style="margin-top: 0.5rem; color: var(--gray); font-size: 0.75rem;">
-                    Powered by <strong>Pagrim</strong>
+                    Powered by <strong>BeuAdhyay</strong>
+                </p>
+                <p style="margin-top: 0.5rem; color: var(--gray); font-size: 0.75rem;">
+                    <b>Developer</b> Name <strong>@ Abhishek, @Anshu, @Ritu, @Rinki</strong>
                 </p>
             </div>
         </div>
     </div>
-<script>
+
+    <script>
         // All branches from your image
         const allBranches = [
             { name: "CIVIL", icon: "fas fa-hard-hat" },
@@ -1194,36 +1189,64 @@
             { name: "Civil engg. with computer app...", icon: "fas fa-desktop" }
         ];
 
-        // Sample data for papers (simplified for demonstration)
+        // Sample data for papers (now includes a pdfUrl for actual viewing/downloading)
         const papersData = {
             "CIVIL": {
                 "1": [
-                    { code: "BTECH-CIVIL-1-SEM-ENGINEERING-MATHEMATICS-1-201101-2023", subject: "Mathematics", year: "2023", pages: 45, size: "2.4 MB" },
-                    { code: "BTECH-CIVIL-1-SEM-ENGINEERING-PHYSICS-201102-2023", subject: "Physics", year: "2023", pages: 32, size: "1.8 MB" }
+                    { code: "BTECH-CIVIL-1-SEM-ENGINEERING-MATHEMATICS-1-201101-2023", subject: "Mathematics", year: "2023", pages: 45, size: "2.4 MB", pdfUrl: "https://www.akubihar.com/papers/btech-1-sem-engineering-mathematics-1-100102-2024.pdf" },
+                    { code: "BTECH-CIVIL-1-SEM-ENGINEERING-PHYSICS-201102-2023", subject: "Physics", year: "2023", pages: 32, size: "1.8 MB", pdfUrl: "https://www.akubihar.com/papers/btech-1-sem-engineering-physics-100110-2024.pdf" },
+                    
+                    { code: "BTECH-CIVIL-1-basic-electronics-engineering-201102-2023", subject: "Physics", year: "2023", pages: 32, size: "1.8 MB", pdfUrl: "https://www.akubihar.com/papers/btech-1-sem-basic-electronics-engineering-100114-2024.html" }
+                    ,
+                    { code: "BTECH-CIVIL-1-SEM-ENGINEERING-workshop-201102-2023", subject: "Physics", year: "2023", pages: 32, size: "1.8 MB", pdfUrl: "https://www.akubihar.com/papers/btech-1-sem-it-workshop-100113-2024.pdf" }
+                    ,
+                    { code: "BTECH-CIVIL-1-SEM-programming-for-problem-solving-201103-2023", subject: "English", year: "2023", pages: 28, size: "1.5 MB", pdfUrl: "https://www.akubihar.com/papers/btech-1-sem-programming-for-problem-solving-100111-2024.pdf" }
+                    ,
+                    { code: "BTECH-CIVIL-1-SEM-chemistry-201104-2023", subject: "Environmental Studies", year: "2023", pages: 30, size: "1.6 MB", pdfUrl: "https://www.akubihar.com/papers/btech-2-sem-chemistry-100203-dec-2024.pdf" }
+                ],
+                 "2": [
+                    { code: "BTECH-CIVIL-2-SEM-STRUCTURAL-ANALYSIS-201401-2023", subject: "Structural Analysis", year: "2023", pages: 48, size: "2.6 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    { code: "BTECH-CIVIL-2-SEM-FLUID-MECHANICS-201402-2023", subject: "Fluid Mechanics", year: "2023", pages: 52, size: "2.8 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }
+                ],
+                 "3": [
+                    { code: "BTECH-CIVIL-3-SEM-STRUCTURAL-ANALYSIS-201401-2023", subject: "Structural Analysis", year: "2023", pages: 48, size: "2.6 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    { code: "BTECH-CIVIL-3-SEM-FLUID-MECHANICS-201402-2023", subject: "Fluid Mechanics", year: "2023", pages: 52, size: "2.8 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }
                 ],
                 "4": [
-                    { code: "BTECH-CIVIL-4-SEM-STRUCTURAL-ANALYSIS-201401-2023", subject: "Structural Analysis", year: "2023", pages: 48, size: "2.6 MB" },
-                    { code: "BTECH-CIVIL-4-SEM-FLUID-MECHANICS-201402-2023", subject: "Fluid Mechanics", year: "2023", pages: 52, size: "2.8 MB" }
+                    { code: "BTECH-CIVIL-4-SEM-STRUCTURAL-ANALYSIS-201401-2023", subject: "Structural Analysis", year: "2023", pages: 48, size: "2.6 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    { code: "BTECH-CIVIL-4-SEM-FLUID-MECHANICS-201402-2023", subject: "Fluid Mechanics", year: "2023", pages: 52, size: "2.8 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }
+                ],
+                 "5": [
+                    { code: "BTECH-CIVIL-5-SEM-STRUCTURAL-ANALYSIS-201401-2023", subject: "Structural Analysis", year: "2023", pages: 48, size: "2.6 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    { code: "BTECH-CIVIL-5-SEM-FLUID-MECHANICS-201402-2023", subject: "Fluid Mechanics", year: "2023", pages: 52, size: "2.8 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }
+                ],
+                 "6": [
+                    { code: "BTECH-CIVIL-6-SEM-STRUCTURAL-ANALYSIS-201401-2023", subject: "Structural Analysis", year: "2023", pages: 48, size: "2.6 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    { code: "BTECH-CIVIL-6-SEM-FLUID-MECHANICS-201402-2023", subject: "Fluid Mechanics", year: "2023", pages: 52, size: "2.8 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }
                 ],
                 "7": [
-                    { code: "BTECH-CIVIL-7-SEM-ENVIRONMENTAL-ENGINEERING-201701-2023", subject: "Environmental Engg", year: "2023", pages: 55, size: "3.0 MB" }
-                ]
+                    { code: "BTECH-CIVIL-7-SEM-ENVIRONMENTAL-ENGINEERING-201701-2023", subject: "Environmental Engg", year: "2023", pages: 55, size: "3.0 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }
+                ],
+                 "8": [
+                    { code: "BTECH-CIVIL-8-SEM-STRUCTURAL-ANALYSIS-201401-2023", subject: "Structural Analysis", year: "2023", pages: 48, size: "2.6 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    { code: "BTECH-CIVIL-8-SEM-FLUID-MECHANICS-201402-2023", subject: "Fluid Mechanics", year: "2023", pages: 52, size: "2.8 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }
+                ],
             },
             "CSE (All Specialization) 3d-Anim.Graphic.": {
                 "3": [
-                    { code: "BTECH-CSE-3-SEM-DATA-STRUCTURES-101301-2023", subject: "Data Structures", year: "2023", pages: 38, size: "2.1 MB" },
-                    { code: "BTECH-CSE-3-SEM-DBMS-101302-2023", subject: "DBMS", year: "2023", pages: 42, size: "2.3 MB" }
+                    { code: "BTECH-CSE-3-SEM-DATA-STRUCTURES-101301-2023", subject: "Data Structures", year: "2023", pages: 38, size: "2.1 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    { code: "BTECH-CSE-3-SEM-DBMS-101302-2023", subject: "DBMS", year: "2023", pages: 42, size: "2.3 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }
                 ],
                 "4": [
-                    { code: "BTECH-CSE-4-SEM-ALGORITHMS-101401-2023", subject: "Algorithms", year: "2023", pages: 45, size: "2.4 MB" }
+                    { code: "BTECH-CSE-4-SEM-ALGORITHMS-101401-2023", subject: "Algorithms", year: "2023", pages: 45, size: "2.4 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }
                 ]
             },
             "Mechanical/ Mechatronics": {
                 "2": [
-                    { code: "BTECH-MECH-2-SEM-ENGINEERING-MECHANICS-301201-2023", subject: "Engineering Mechanics", year: "2023", pages: 40, size: "2.2 MB" }
+                    { code: "BTECH-MECH-2-SEM-ENGINEERING-MECHANICS-301201-2023", subject: "Engineering Mechanics", year: "2023", pages: 40, size: "2.2 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }
                 ],
                 "5": [
-                    { code: "BTECH-MECH-5-SEM-THERMAL-ENGINEERING-301501-2023", subject: "Thermal Engineering", year: "2023", pages: 50, size: "2.7 MB" }
+                    { code: "BTECH-MECH-5-SEM-THERMAL-ENGINEERING-301501-2023", subject: "Thermal Engineering", year: "2023", pages: 50, size: "2.7 MB", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }
                 ]
             }
         };
@@ -1250,20 +1273,11 @@
         const navDashboard = document.getElementById('navDashboard');
 
         // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            // Generate branch cards
+        document.addEventListener('DOMContentLoaded', function () {
             generateBranchCards();
-            
-            // Generate quick access links in sidebar
             generateQuickAccess();
-            
-            // Set up event listeners
             setupEventListeners();
-            
-            // Show notification
-            showNotification("Welcome to BEU ADDA! Select a branch to view question papers.");
-            
-            // Add device detection info for debugging
+            showNotification("Welcome to BeuAdhyay! Select a branch to view question papers.");
             detectDevice();
         });
 
@@ -1273,18 +1287,13 @@
                 const branchCard = document.createElement('div');
                 branchCard.className = 'branch-card';
                 branchCard.setAttribute('data-branch', branch.name);
-                
                 branchCard.innerHTML = `
-                    <div class="branch-icon">
-                        <i class="${branch.icon}"></i>
-                    </div>
+                    <div class="branch-icon"><i class="${branch.icon}"></i></div>
                     <div class="branch-name">${branch.name}</div>
                 `;
-                
-                branchCard.addEventListener('click', function() {
+                branchCard.addEventListener('click', function () {
                     selectBranch(branch.name);
                 });
-                
                 branchGrid.appendChild(branchCard);
             });
         }
@@ -1296,23 +1305,15 @@
                 li.innerHTML = `<a href="#" data-semester="${i}"><i class="fas fa-layer-group"></i> Semester ${i}</a>`;
                 quickAccessList.appendChild(li);
             }
-            
-            // Add event listeners to quick access links
             quickAccessList.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function(e) {
+                link.addEventListener('click', function (e) {
                     e.preventDefault();
                     const semester = this.getAttribute('data-semester');
-                    
-                    // If no branch selected, show error
                     if (!currentBranch) {
                         showNotification("Please select a branch first");
                         return;
                     }
-                    
-                    // Select the semester
                     selectSemester(semester);
-                    
-                    // Scroll to papers section
                     papersSection.scrollIntoView({ behavior: 'smooth' });
                 });
             });
@@ -1321,7 +1322,7 @@
         // Set up event listeners
         function setupEventListeners() {
             // Mobile menu toggle
-            mobileToggle.addEventListener('click', function() {
+            mobileToggle.addEventListener('click', function () {
                 sidebar.classList.toggle('active');
                 const icon = this.querySelector('i');
                 if (sidebar.classList.contains('active')) {
@@ -1332,11 +1333,10 @@
             });
 
             // Close sidebar when clicking outside on mobile
-            document.addEventListener('click', function(event) {
+            document.addEventListener('click', function (event) {
                 if (window.innerWidth <= 1023) {
                     const isClickInsideSidebar = sidebar.contains(event.target);
                     const isClickOnToggle = mobileToggle.contains(event.target);
-                    
                     if (!isClickInsideSidebar && !isClickOnToggle && sidebar.classList.contains('active')) {
                         sidebar.classList.remove('active');
                         mobileToggle.querySelector('i').className = 'fas fa-bars';
@@ -1345,16 +1345,15 @@
             });
 
             // Dashboard navigation
-            navDashboard.addEventListener('click', function(e) {
+            navDashboard.addEventListener('click', function (e) {
                 e.preventDefault();
                 resetToDashboard();
             });
 
             // Search functionality
-            searchInput.addEventListener('input', function() {
+            searchInput.addEventListener('input', function () {
                 const searchTerm = this.value.toLowerCase();
                 const paperItems = document.querySelectorAll('.paper-item');
-                
                 paperItems.forEach(item => {
                     const paperCode = item.querySelector('.paper-code').textContent.toLowerCase();
                     if (paperCode.includes(searchTerm) || searchTerm === '') {
@@ -1365,21 +1364,20 @@
                 });
             });
 
-            // Other navigation links
-            document.querySelectorAll('#navSearch, #navPopular, #navRecent, #navDownloads').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const section = this.id.replace('nav', '');
-                    showNotification(`${section} section - Coming soon!`);
+            // Other navigation links (just for demonstration – you can link to actual pages)
+            document.querySelectorAll('#navSyllabus, #navUniversity, #navScholarship, #navHoliday, #navResult, #navAssistant').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    // Do not prevent default if href is a real page – they will navigate normally.
+                    // But if you want to keep them as placeholders, you can show a notification.
+                    // We'll just let them navigate.
                 });
             });
 
             // Handle window resize
             let resizeTimer;
-            window.addEventListener('resize', function() {
+            window.addEventListener('resize', function () {
                 clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(function() {
-                    // Close sidebar on resize to mobile
+                resizeTimer = setTimeout(function () {
                     if (window.innerWidth <= 1023) {
                         sidebar.classList.remove('active');
                         mobileToggle.querySelector('i').className = 'fas fa-bars';
@@ -1391,136 +1389,83 @@
 
         // Select branch function
         function selectBranch(branch) {
-            // Close sidebar on mobile after selection
             if (window.innerWidth <= 1023) {
                 sidebar.classList.remove('active');
                 mobileToggle.querySelector('i').className = 'fas fa-bars';
             }
-            
-            // Remove active class from all branch cards
             document.querySelectorAll('.branch-card').forEach(card => {
                 card.classList.remove('active');
             });
-            
-            // Add active class to selected branch
             const selectedCard = document.querySelector(`.branch-card[data-branch="${branch}"]`);
-            if (selectedCard) {
-                selectedCard.classList.add('active');
-            }
-            
-            // Update current branch
+            if (selectedCard) selectedCard.classList.add('active');
             currentBranch = branch;
-            currentSemester = null; // Reset semester
-            
-            // Update UI
+            currentSemester = null;
             branchNameSpan.textContent = branch;
             selectedBranchTitle.innerHTML = `B.TECH <span id="branchName">${branch}</span>`;
-            
-            // Generate semesters for this branch
             generateSemesters(branch);
-            
-            // Show semester section
             semesterSection.classList.add('show');
-            
-            // Hide papers section
             papersSection.classList.remove('show');
-            
-            // Scroll to semester section
             semesterSection.scrollIntoView({ behavior: 'smooth' });
-            
-            // Show notification
             showNotification(`Selected ${branch}. Now select a semester.`);
         }
 
         // Generate semesters for selected branch
         function generateSemesters(branch) {
             semesterGrid.innerHTML = '';
-            
-            // Check if branch has papers
             const hasPapers = papersData.hasOwnProperty(branch);
-            
             for (let i = 1; i <= 8; i++) {
                 const semesterCard = document.createElement('div');
                 semesterCard.className = 'semester-card';
                 semesterCard.setAttribute('data-semester', i);
-                
-                // Check if this semester has papers
                 const hasSemesterPapers = hasPapers && papersData[branch].hasOwnProperty(i.toString());
-                const isDisabled = !hasSemesterPapers;
-                
-                if (isDisabled) {
+                if (!hasSemesterPapers) {
                     semesterCard.style.opacity = '0.6';
                     semesterCard.style.cursor = 'not-allowed';
                     semesterCard.style.filter = 'grayscale(0.5)';
                 }
-                
                 semesterCard.innerHTML = `
                     <div class="semester-number">${i}</div>
                     <div class="semester-text">SEMESTER</div>
                     ${!hasSemesterPapers ? '<div style="font-size: 0.7rem; color: var(--gray); margin-top: 0.25rem;">No papers</div>' : ''}
                 `;
-                
-                // Add click event only if semester has papers
                 if (hasSemesterPapers) {
-                    semesterCard.addEventListener('click', function() {
+                    semesterCard.addEventListener('click', function () {
                         const semester = this.getAttribute('data-semester');
                         selectSemester(semester);
                     });
                 } else {
-                    semesterCard.addEventListener('click', function() {
+                    semesterCard.addEventListener('click', function () {
                         showNotification(`No papers available for ${branch} Semester ${i}`);
                     });
                 }
-                
                 semesterGrid.appendChild(semesterCard);
             }
         }
 
         // Select semester function
         function selectSemester(semester) {
-            // Close sidebar on mobile after selection
             if (window.innerWidth <= 1023) {
                 sidebar.classList.remove('active');
                 mobileToggle.querySelector('i').className = 'fas fa-bars';
             }
-            
-            // Remove active class from all semester cards
             document.querySelectorAll('.semester-card').forEach(card => {
                 card.classList.remove('active');
             });
-            
-            // Add active class to selected semester
             const selectedCard = document.querySelector(`.semester-card[data-semester="${semester}"]`);
-            if (selectedCard) {
-                selectedCard.classList.add('active');
-            }
-            
-            // Update current semester
+            if (selectedCard) selectedCard.classList.add('active');
             currentSemester = semester;
-            
-            // Load papers for this branch and semester
             loadPapers(currentBranch, semester);
-            
-            // Update UI
             selectedBranchSpan.textContent = currentBranch;
             selectedSemesterSpan.textContent = semester;
             papersSectionTitle.innerHTML = `Papers for <span id="selectedBranch">${currentBranch}</span> - Semester <span id="selectedSemester">${semester}</span>`;
-            
-            // Show papers section
             papersSection.classList.add('show');
-            
-            // Scroll to papers section
             papersSection.scrollIntoView({ behavior: 'smooth' });
-            
-            // Show notification
             showNotification(`Loaded papers for ${currentBranch} Semester ${semester}`);
         }
 
-        // Load papers function
+        // Load papers function – now with working View/Download buttons
         function loadPapers(branch, semester) {
             papersList.innerHTML = '';
-            
-            // Check if papers exist for this branch and semester
             if (!papersData[branch] || !papersData[branch][semester]) {
                 papersList.innerHTML = `
                     <div class="empty-state" style="text-align: center; padding: 3rem; color: var(--gray);">
@@ -1532,15 +1477,10 @@
                 `;
                 return;
             }
-            
-            // Get papers for this branch and semester
             const papers = papersData[branch][semester];
-            
-            // Display each paper
             papers.forEach(paper => {
                 const paperItem = document.createElement('div');
                 paperItem.className = 'paper-item';
-                
                 paperItem.innerHTML = `
                     <div class="paper-info">
                         <div class="paper-code">${paper.code}</div>
@@ -1553,80 +1493,70 @@
                         </div>
                     </div>
                     <div class="paper-actions">
-                        <button class="btn btn-primary view-btn">
+                        <button class="btn btn-primary view-btn" data-pdf="${paper.pdfUrl}">
                             <i class="fas fa-eye"></i> View
                         </button>
-                        <button class="btn btn-outline download-btn">
+                        <button class="btn btn-outline download-btn" data-pdf="${paper.pdfUrl}">
                             <i class="fas fa-download"></i> Download
                         </button>
                     </div>
                 `;
-                
-                // Add event listeners to buttons
+
+                // View button: open PDF in new tab
                 const viewBtn = paperItem.querySelector('.view-btn');
+                viewBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const url = this.getAttribute('data-pdf');
+                    window.open(url, '_blank');
+                });
+
+                // Download button: trigger download using an anchor element
                 const downloadBtn = paperItem.querySelector('.download-btn');
-                
-                viewBtn.addEventListener('click', function(e) {
+                downloadBtn.addEventListener('click', function (e) {
                     e.stopPropagation();
-                    showNotification(`Opening PDF: ${paper.code}`);
-                    // In real implementation, this would open the PDF viewer
+                    const url = this.getAttribute('data-pdf');
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = paper.code + '.pdf'; // suggest a filename
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
                 });
-                
-                downloadBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    showNotification(`Downloading: ${paper.code}`);
-                    // In real implementation, this would trigger download
-                });
-                
-                // Add click event to entire paper item
-                paperItem.addEventListener('click', function(e) {
+
+                // Optional click on entire paper item
+                paperItem.addEventListener('click', function (e) {
                     if (!e.target.closest('.paper-actions')) {
                         showNotification(`Selected: ${paper.code}`);
                     }
                 });
-                
+
                 papersList.appendChild(paperItem);
             });
         }
 
         // Reset to dashboard
         function resetToDashboard() {
-            // Close sidebar on mobile
             if (window.innerWidth <= 1023) {
                 sidebar.classList.remove('active');
                 mobileToggle.querySelector('i').className = 'fas fa-bars';
             }
-            
-            // Reset selections
             currentBranch = null;
             currentSemester = null;
-            
-            // Remove active classes
             document.querySelectorAll('.branch-card').forEach(card => {
                 card.classList.remove('active');
             });
-            
             document.querySelectorAll('.semester-card').forEach(card => {
                 card.classList.remove('active');
             });
-            
-            // Hide sections
             semesterSection.classList.remove('show');
             papersSection.classList.remove('show');
-            
-            // Clear search
             searchInput.value = '';
-            
-            // Show notification
             showNotification("Back to dashboard. Select a branch to begin.");
-            
-            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Notification function
         function showNotification(message) {
-            // Create notification element
             const notification = document.createElement('div');
             notification.style.position = 'fixed';
             notification.style.bottom = '20px';
@@ -1641,16 +1571,11 @@
             notification.style.opacity = '0';
             notification.style.transition = 'all 0.3s ease';
             notification.innerHTML = `<i class="fas fa-info-circle"></i> ${message}`;
-            
             document.body.appendChild(notification);
-            
-            // Animate in
             setTimeout(() => {
                 notification.style.transform = 'translateY(0)';
                 notification.style.opacity = '1';
             }, 10);
-            
-            // Remove after 3 seconds
             setTimeout(() => {
                 notification.style.transform = 'translateY(100px)';
                 notification.style.opacity = '0';
@@ -1664,7 +1589,6 @@
         function detectDevice() {
             const width = window.innerWidth;
             let deviceType = '';
-            
             if (width >= 1440) deviceType = 'Large Desktop';
             else if (width >= 1024) deviceType = 'Desktop';
             else if (width >= 768) deviceType = 'Tablet (Landscape)';
@@ -1672,14 +1596,10 @@
             else if (width >= 480) deviceType = 'Smartphone (Landscape)';
             else if (width >= 320) deviceType = 'Smartphone (Portrait)';
             else deviceType = 'Very Small Device';
-            
             console.log(`Device: ${deviceType}, Width: ${width}px`);
-            
-            // For debugging: show device type in console
             return deviceType;
         }
-        </script>
-
-    <script src="script.js"></script>
+    </script>
 </body>
+
 </html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Scholarships - BeuAdhyay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/Syllabus/style.css">
+    <style>
+        /* Additional styles for scholarship cards */
+        .scholarship-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .scholarship-card {
+            background: var(--white);
+            border: 2px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .scholarship-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+        .scholarship-image {
+            width: 100%;
+            height: 160px;
+            overflow: hidden;
+            background-color: var(--light-gray);
+        }
+        .scholarship-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .scholarship-card:hover .scholarship-image img {
+            transform: scale(1.05);
+        }
+        .scholarship-content {
+            padding: 1.5rem 1.5rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .scholarship-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            text-align: center;
+            display: none; /* Hide icon if image is present – can be removed if you want both */
+        }
+        .scholarship-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+            text-align: left;
+        }
+        .scholarship-desc {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+        .scholarship-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--gray);
+            border-top: 1px solid var(--light-gray);
+            padding-top: 0.75rem;
+        }
+        .scholarship-meta span i {
+            margin-right: 0.25rem;
+            color: var(--primary);
+        }
+        .scholarship-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 0.6rem 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            margin-top: 0.5rem;
+        }
+        .scholarship-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-toggle" id="mobileToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="container">
+        <!-- Sidebar (same as before) -->
+        <div class="sidebar" id="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">Beu<span>Adhyay</span></div>
+            </div>
+
+            <div class="nav-section">
+                <h3>Navigation</h3>
+                  <ul>
+                    <li><a href="/index.html" id="navDashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="../Syllabus/Syllabus.html" id="navSyllabus"><i class="fas fa-search"></i> Syllabus</a>
+                    </li>
+                    <li><a href="https://beu-bih.ac.in/notification" target="_blank" id="navUniversity"><i
+                                class="fas fa-star"></i> University Notification</a></li>
+                    <li><a href="../Scholarships/index.html" target="_blank" id="navScholarship"><i
+                                class="fas fa-history"></i> All scholarship</a></li>
+                    <li><a href="../Holidays/index.html" id="navHoliday"><i class="fas fa-calendar-alt"></i> Holiday</a>
+                    </li>
+                    <li><a href="https://beu-bih.ac.in/result-one" target="_blank" id="navResult"><i
+                                class="fas fa-chart-line"></i> Result</a></li>
+                    <li><a href="../Assistant/index.html" id="navAssistant"><i class="fas fa-robot"></i> AI
+                            Assistant</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3>Quick Access</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-layer-group"></i> Semester 1</a></li>
+                    <li><a href="#"><i class="fas fa-layer-group"></i> Semester 2</a></li>
+                    <!-- other semesters (optional) -->
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3>Statistics</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-pdf"></i> Total Papers: 2,500+</a></li>
+                    <li><a href="#"><i class="fas fa-download"></i> Downloads: 75K+</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Active Users: 25K+</a></li>
+                </ul>
+            </div>
+
+            <div class="beuadhyay-brand">
+                <p>BeuAdhyay</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>All Scholarships</h1>
+                <div class="header-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search scholarships...">
+                    </div>
+                    <div class="user-profile">
+                        <div class="user-avatar">BA</div>
+                        <div>
+                            <div style="font-weight: 600;">BeuAdhyay</div>
+                            <div style="font-size: 0.875rem; color: var(--gray);">University</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scholarships Listing with Images -->
+            <div class="content-section">
+                <h2 class="section-title">Available Scholarships for Students</h2>
+                <p style="margin-bottom: 1rem; color: var(--gray);">Explore various scholarships, internships, and learning resources. Click on any card to apply or learn more.</p>
+                
+                <div class="scholarship-grid" id="scholarshipGrid">
+                    <!-- PMS Card -->
+                    <div class="scholarship-card">
+                        <div class="scholarship-image">
+                            <img src="https://sarkariresult.com.cm/wp-content/uploads/2025/01/pms-online-bihar-post-matric-scholarship-2024-25.jpg" alt="PMS Scholarship">
+                        </div>
+                        <div class="scholarship-content">
+                            <div class="scholarship-title">PMS (Post Matric Scholarship)</div>
+                            <div class="scholarship-desc">State government scholarship for SC/ST/OBC students pursuing higher education. Covers tuition fees and maintenance allowance.</div>
+                            <div class="scholarship-meta">
+                                <span><i class="fas fa-calendar-alt"></i> Deadline: 31 Dec</span>
+                                <span><i class="fas fa-graduation-cap"></i> All streams</span>
+                            </div>
+                            <a href="https://pmsonline.bihar.gov.in/pms/pms_online/Default.aspx" target="_blank" class="scholarship-btn">Apply Now <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Spoken Tutorial Card -->
+                    <div class="scholarship-card">
+                        <div class="scholarship-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTcclLnDGcsrGzfVP-yX3Fv5KF1N5p3J3QWQ&s" alt="Spoken Tutorial">
+                        </div>
+                        <div class="scholarship-content">
+                            <div class="scholarship-title">Spoken Tutorial (IIT Bombay)</div>
+                            <div class="scholarship-desc">Free self-paced training in IT, programming, and soft skills. Certificates provided after online tests.</div>
+                            <div class="scholarship-meta">
+                                <span><i class="fas fa-clock"></i> Self-paced</span>
+                                <span><i class="fas fa-certificate"></i> Free certificate</span>
+                            </div>
+                            <a href="https://spoken-tutorial.org/" target="_blank" class="scholarship-btn">Start Learning <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- NPTEL Card -->
+                    <div class="scholarship-card">
+                        <div class="scholarship-image">
+                            <img src="https://i.ytimg.com/vi/20n_KqaPP7Q/maxresdefault.jpg" alt="NPTEL">
+                        </div>
+                        <div class="scholarship-content">
+                            <div class="scholarship-title">NPTEL</div>
+                            <div class="scholarship-desc">Online courses in engineering, science, and humanities from IITs/IISc. Certification exams available.</div>
+                            <div class="scholarship-meta">
+                                <span><i class="fas fa-video"></i> 1000+ courses</span>
+                                <span><i class="fas fa-trophy"></i> Elite+Silver</span>
+                            </div>
+                            <a href="https://swayam.gov.in/nc_details/NPTEL" target="_blank" class="scholarship-btn">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- AICTE Internship Card -->
+                    <div class="scholarship-card">
+                        <div class="scholarship-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXe_-4f_mZfY79FfVUTI6-RrtE0zt5iSdvCw&s" alt="AICTE Internship">
+                        </div>
+                        <div class="scholarship-content">
+                            <div class="scholarship-title">AICTE Internship</div>
+                            <div class="scholarship-desc">Paid internships for engineering/ diploma students under AICTE's schemes like Pragati, Saksham, etc.</div>
+                            <div class="scholarship-meta">
+                                <span><i class="fas fa-money-bill-wave"></i> Stipend: ₹10k/mo</span>
+                                <span><i class="fas fa-industry"></i> Industry</span>
+                            </div>
+                            <a href="https://internship.aicte-india.org/internshipbygoogle.php" target="_blank" class="scholarship-btn">Apply <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- NSP Card -->
+                    <div class="scholarship-card">
+                        <div class="scholarship-image">
+                            <img src="https://d35xcwcl37xo08.cloudfront.net/current-affairs-wp-uploads/2025/11/National-Scholarship-Portal-NSP-2025.webp" alt="NSP">
+                        </div>
+                        <div class="scholarship-content">
+                            <div class="scholarship-title">NSP (National Scholarship Portal)</div>
+                            <div class="scholarship-desc">One-stop portal for all central/state scholarships including PMS, Merit-cum-Means, etc.</div>
+                            <div class="scholarship-meta">
+                                <span><i class="fas fa-calendar"></i> Aug-Oct window</span>
+                                <span><i class="fas fa-link"></i> scholarships.gov.in</span>
+                            </div>
+                            <a href="https://scholarships.gov.in/" target="_blank" class="scholarship-btn">Visit Portal <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- National Digital Library Card -->
+                    <div class="scholarship-card">
+                        <div class="scholarship-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLQH-aHZnH3HLrNQ-FxFQZh2ETzVox7L6mRQ&s" alt="NDL">
+                        </div>
+                        <div class="scholarship-content">
+                            <div class="scholarship-title">National Digital Library (NDL)</div>
+                            <div class="scholarship-desc">Digital repository of learning resources: books, articles, videos, question papers for all disciplines.</div>
+                            <div class="scholarship-meta">
+                                <span><i class="fas fa-database"></i> 6 crore+ items</span>
+                                <span><i class="fas fa-university"></i> IIT KGP</span>
+                            </div>
+                            <a href="https://www.ndl.gov.in/" target="_blank" class="scholarship-btn">Explore <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>© 2023 BeuAdhyay | Empowering Education through Scholarships</p>
+                <p style="margin-top: 0.5rem; color: var(--gray); font-size: 0.75rem;">For educational purposes only</p>
+                <p style="margin-top: 0.5rem; color: var(--gray); font-size: 0.75rem;">Powered by <strong>BeuAdhyay</strong></p>
+            </div>
+        </div>
+    </div>
+
+   <script src="/home page/script.js"></script>
+    <script>
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.scholarship-card');
+            cards.forEach(card => {
+                const title = card.querySelector('.scholarship-title').textContent.toLowerCase();
+                const desc = card.querySelector('.scholarship-desc').textContent.toLowerCase();
+                if (title.includes(term) || desc.includes(term)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

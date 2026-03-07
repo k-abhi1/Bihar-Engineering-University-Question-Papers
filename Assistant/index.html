@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeuAdhyay - AI Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ----- Your exact color palette and base styles (unchanged) ----- */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0ea5e9;
+            --accent: #06b6d4;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --white: #ffffff;
+            --success: #10b981;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 2rem 1.5rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .logo-text span {
+            color: var(--accent);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-section h3 {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .nav-section ul {
+            list-style: none;
+        }
+
+        .nav-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-section a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0.75rem 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .nav-section a:hover,
+        .nav-section a.active {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+        }
+
+        .nav-section a i {
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1000;
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            padding: 2rem;
+            overflow-y: auto;
+            max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            width: 300px;
+            transition: all 0.2s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* Content Sections (reused) */
+        .content-section {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--light-gray);
+            font-weight: 600;
+        }
+
+        /* ----- New styles for AI Assistant chat ----- */
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-height: 500px;
+        }
+
+        .message {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            max-width: 80%;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--dark);
+            flex-shrink: 0;
+        }
+
+        .message.user .message-avatar {
+            background: var(--primary);
+            color: white;
+        }
+
+        .message-bubble {
+            background: var(--light);
+            padding: 0.75rem 1rem;
+            border-radius: 18px;
+            border: 1px solid var(--light-gray);
+            word-break: break-word;
+        }
+
+        .message.user .message-bubble {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary-dark);
+        }
+
+        .message-time {
+            font-size: 0.7rem;
+            color: var(--gray);
+            margin-top: 0.25rem;
+            text-align: right;
+        }
+
+        .chat-input-area {
+            display: flex;
+            padding: 1rem 1.5rem 1.5rem;
+            border-top: 2px solid var(--light-gray);
+            background: var(--white);
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .send-btn {
+            margin-left: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .send-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+        }
+
+        .send-btn i {
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--light-gray);
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+
+        .beuadhyay-brand {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== MEDIA QUERIES (abridged, keep as needed) ========== */
+        @media (max-width: 1023px) {
+            .container { grid-template-columns: 1fr; position: relative; }
+            .sidebar { position: fixed; left: -280px; top: 0; z-index: 999; width: 280px; transition: left 0.3s ease; }
+            .sidebar.active { left: 0; }
+            .mobile-toggle { display: flex; align-items: center; justify-content: center; }
+            .header { flex-direction: column; align-items: flex-start; gap: 1rem; margin-top: 3rem; }
+            .header-controls { width: 100%; flex-direction: column; gap: 1rem; }
+            .search-box { width: 100%; }
+            .search-box input { width: 100%; }
+        }
+
+        @media (max-width: 767px) {
+            .header h1 { font-size: 1.75rem; }
+            .message { max-width: 90%; }
+        }
+
+        @media (max-width: 599px) {
+            .main-content { padding: 1rem; }
+            .chat-input-area { flex-direction: column; gap: 0.75rem; }
+            .send-btn { margin-left: 0; width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-toggle" id="mobileToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="container">
+        <!-- Sidebar (identical to other pages) -->
+        <div class="sidebar" id="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">Beu<span>Adhyay</span></div>
+            </div>
+
+            <div class="nav-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="/index.html" id="navDashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="../Syllabus/Syllabus.html" id="navSyllabus"><i class="fas fa-search"></i> Syllabus</a>
+                    </li>
+                    <li><a href="https://beu-bih.ac.in/notification" target="_blank" id="navUniversity"><i
+                                class="fas fa-star"></i> University Notification</a></li>
+                    <li><a href="../Scholarships/index.html" target="_blank" id="navScholarship"><i
+                                class="fas fa-history"></i> All scholarship</a></li>
+                    <li><a href="../Holidays/index.html" id="navHoliday"><i class="fas fa-calendar-alt"></i> Holiday</a>
+                    </li>
+                    <li><a href="https://beu-bih.ac.in/result-one" target="_blank" id="navResult"><i
+                                class="fas fa-chart-line"></i> Result</a></li>
+                    <li><a href="./Holidays/index.html" id="navAssistant"><i class="fas fa-robot"></i> AI
+                            Assistant</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3>Statistics</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-pdf"></i> Total Syllabus Items: 2,500+</a></li>
+                    <li><a href="#"><i class="fas fa-download"></i> Downloads: 75K+</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Active Users: 25K+</a></li>
+                </ul>
+            </div>
+
+            <div class="beuadhyay-brand">
+                <p>BeuAdhyay</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>BeuAdhyay - AI Assistant</h1>
+                <div class="header-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="globalSearch" placeholder="Search across the site...">
+                    </div>
+                    <div class="user-profile">
+                        <div class="user-avatar">BA</div>
+                        <div>
+                            <div style="font-weight: 600;">BeuAdhyay</div>
+                            <div style="font-size: 0.875rem; color: var(--gray);">University</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Assistant Chat Interface -->
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Initial welcome message -->
+                    <div class="message bot">
+                        <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                        <div class="message-bubble">
+                            Hello! I'm your BeuAdhyay AI Assistant. How can I help you today? You can ask me about syllabus, exams, scholarships, holidays, or anything related to your studies.
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Type your question..." autofocus>
+                    <button class="send-btn" id="sendBtn"><i class="fas fa-paper-plane"></i> Send</button>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>© 2023 BeuAdhyay | Your Personal AI Study Assistant</p>
+                <p style="margin-top: 0.5rem; color: var(--gray); font-size: 0.75rem;">Powered by BeuAdhyay AI</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ----- AI Assistant Logic -----
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM elements
+            const mobileToggle = document.getElementById('mobileToggle');
+            const sidebar = document.getElementById('sidebar');
+            const chatMessages = document.getElementById('chatMessages');
+            const chatInput = document.getElementById('chatInput');
+            const sendBtn = document.getElementById('sendBtn');
+            const globalSearch = document.getElementById('globalSearch');
+
+            // Mobile menu toggle (same as other pages)
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    sidebar.classList.toggle('active');
+                    const icon = this.querySelector('i');
+                    icon.className = sidebar.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+                });
+            }
+
+            // Close sidebar when clicking outside on mobile
+            document.addEventListener('click', function(event) {
+                if (window.innerWidth <= 1023) {
+                    const insideSidebar = sidebar.contains(event.target);
+                    const onToggle = mobileToggle.contains(event.target);
+                    if (!insideSidebar && !onToggle && sidebar.classList.contains('active')) {
+                        sidebar.classList.remove('active');
+                        const icon = mobileToggle.querySelector('i');
+                        if (icon) icon.className = 'fas fa-bars';
+                    }
+                }
+            });
+
+            // Global search placeholder
+            if (globalSearch) {
+                globalSearch.addEventListener('input', function() {
+                    // You can implement site search later
+                    console.log('Searching:', this.value);
+                });
+            }
+
+            // Function to add a message to the chat
+            function addMessage(text, sender = 'user') {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}`;
+
+                const avatar = document.createElement('div');
+                avatar.className = 'message-avatar';
+                if (sender === 'user') {
+                    avatar.innerHTML = '<i class="fas fa-user"></i>';
+                } else {
+                    avatar.innerHTML = '<i class="fas fa-robot"></i>';
+                }
+
+                const bubble = document.createElement('div');
+                bubble.className = 'message-bubble';
+
+                const textSpan = document.createElement('span');
+                textSpan.textContent = text;
+
+                const timeDiv = document.createElement('div');
+                timeDiv.className = 'message-time';
+                const now = new Date();
+                timeDiv.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+                bubble.appendChild(textSpan);
+                bubble.appendChild(timeDiv);
+                messageDiv.appendChild(avatar);
+                messageDiv.appendChild(bubble);
+
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight; // scroll to bottom
+            }
+
+            // Simple AI response generator
+            function getAIResponse(userMessage) {
+                const lowerMsg = userMessage.toLowerCase();
+
+                // Basic responses – you can expand this as needed
+                if (lowerMsg.includes('hello') || lowerMsg.includes('hi')) {
+                    return "Hello! How can I assist you today?";
+                }
+                if (lowerMsg.includes('syllabus') || lowerMsg.includes('subjects')) {
+                    return "You can find syllabus for all branches under the 'Syllabus' section. Select your branch and semester to view detailed syllabus.";
+                }
+                if (lowerMsg.includes('scholarship') || lowerMsg.includes('financial aid')) {
+                    return "We have various scholarships like PMS, NSP, and more. Visit the 'All scholarship' page for details and application links.";
+                }
+                if (lowerMsg.includes('holiday') || lowerMsg.includes('vacation')) {
+                    return "Check the 'Holiday' page for the academic calendar and list of holidays.";
+                }
+                if (lowerMsg.includes('exam') || lowerMsg.includes('paper') || lowerMsg.includes('question')) {
+                    return "Previous year question papers are available on the Dashboard. Select your branch and semester to view/download.";
+                }
+                if (lowerMsg.includes('download')) {
+                    return "You can download syllabus and question papers using the Download button next to each item.";
+                }
+                if (lowerMsg.includes('result')) {
+                    return "Results are published on the official BEU website. Use the 'Result' link in the sidebar to check your results.";
+                }
+                if (lowerMsg.includes('contact') || lowerMsg.includes('help')) {
+                    return "For further assistance, please contact your university administration or use the 'AI Assistant' for basic queries.";
+                }
+                if (lowerMsg.includes('thank')) {
+                    return "You're welcome! If you have more questions, feel free to ask.";
+                }
+
+                // Default response
+                return "I'm sorry, I don't have an answer to that yet. Please ask about syllabus, scholarships, holidays, exams, or other academic topics.";
+            }
+
+            // Send message function
+            function sendMessage() {
+                const text = chatInput.value.trim();
+                if (text === '') return;
+
+                // Add user message
+                addMessage(text, 'user');
+
+                // Clear input
+                chatInput.value = '';
+
+                // Simulate AI thinking delay
+                setTimeout(() => {
+                    const reply = getAIResponse(text);
+                    addMessage(reply, 'bot');
+                }, 600);
+            }
+
+            // Event listeners
+            sendBtn.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+
+            // Optional: focus input on load
+            chatInput.focus();
+        });
+    </script>
+</body>
+</html>
