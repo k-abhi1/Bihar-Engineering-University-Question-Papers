@@ -25,6 +25,8 @@ BeuAdhyay is a comprehensive web platform designed for students of Bihar Enginee
 - **Google Fonts** – Poppins & Inter fonts
 
 ## 📁 Project Structure
+
+```
 BeuAdhyay/
 ├── index.html # Dashboard (question papers)
 ├── Syllabus.html # Syllabus page
@@ -36,7 +38,7 @@ BeuAdhyay/
 ├── script.js # Common JavaScript (mobile menu, etc.)
 ├── assets/ # (Optional) images, logos
 └── README.md # This file
-
+```
 
 > **Note:** Some HTML files may be located in subfolders (e.g., `/Syllabus/Syllabus.html`). Adjust paths accordingly when deploying.
 
